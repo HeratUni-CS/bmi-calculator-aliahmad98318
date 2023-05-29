@@ -23,28 +23,14 @@ class _InputPageState extends State<InputPage> {
             children: [
               ReusableWidget(
                 color: activeCartColor,
-                child: Column(
-                  mainAxisAlignment:MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.mars,
-                      size: 40,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'MALE',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Color(0xFF868892),
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                child: IconContent(
+                  icanData: FontAwesomeIcons.mars,
+                  label: 'MALE',
                 ),
               ),
               ReusableWidget(
                 color: activeCartColor,
+                child: IconContent(icanData: FontAwesomeIcons.venus,label: 'FEMALE',),
               ),
             ],
           )),
@@ -69,6 +55,34 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class IconContent extends StatelessWidget {
+  final IconData icanData;
+  final String label;
+  IconContent({required this.icanData, required this.label});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icanData,
+          size: 40,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+              fontSize: 30,
+              color: Color(0xFF868892),
+              fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
