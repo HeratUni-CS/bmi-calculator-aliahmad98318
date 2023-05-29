@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+const buttomContainerColor=Color(0xFFEB1555);
+const activeCartColor=Color(0xFF111428);
 class InputPage extends StatefulWidget {
   @override
   State<InputPage> createState() => _InputPageState();
@@ -17,44 +20,54 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               child: Row(
             children: [
-              Expanded(
-                child: Container(
-                  color: Color(0xFF111428),
-                  margin: EdgeInsets.all(15),
-                ),
+              ReusableWidget(
+                color: activeCartColor,
+                child: Column(children: [],),
               ),
-              Expanded(
-                child: Container(
-                  color: Color(0xFF111428),
-                  margin:EdgeInsets.all(15),
-                ),
+              ReusableWidget(
+                color: activeCartColor,
               ),
             ],
           )),
-          Expanded(
-            child: Container(
-              color: Color(0xFF111428),
-              margin:EdgeInsets.all(15),
-            ),
+          ReusableWidget(
+            color: activeCartColor,
           ),
           Expanded(
               child: Row(
             children: [
-              Expanded(
-                child: Container(
-                  color: Color(0xFF111428),
-                   margin:EdgeInsets.all(15),
-                ),
+              ReusableWidget(
+                color: activeCartColor,
               ),
-              Expanded(
-                child: Container(
-                  color: Color(0xFF111428),
-                  margin:EdgeInsets.all(15),
-                ),
+              ReusableWidget(
+                color:activeCartColor,
               ),
             ],
           )),
+          Container(
+            height: 80,
+            color: buttomContainerColor,
+            margin: EdgeInsets.only(top: 10),
+          )
         ],
+      ),
+    );
+  }
+}
+
+class ReusableWidget extends StatelessWidget {
+  ReusableWidget({required this.color, this.child});
+  final Color color;
+  final Widget? child;
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: color,
+        ),
+        child: child,
       ),
     );
   }
