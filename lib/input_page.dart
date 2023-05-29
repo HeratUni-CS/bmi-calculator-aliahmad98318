@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const buttomContainerColor=Color(0xFFEB1555);
-const activeCartColor=Color(0xFF111428);
+const buttomContainerColor = Color(0xFFEB1555);
+const activeCartColor = Color(0xFF111428);
+
 class InputPage extends StatefulWidget {
   @override
   State<InputPage> createState() => _InputPageState();
@@ -22,7 +23,25 @@ class _InputPageState extends State<InputPage> {
             children: [
               ReusableWidget(
                 color: activeCartColor,
-                child: Column(children: [],),
+                child: Column(
+                  mainAxisAlignment:MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.mars,
+                      size: 40,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'MALE',
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Color(0xFF868892),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
               ReusableWidget(
                 color: activeCartColor,
@@ -39,7 +58,7 @@ class _InputPageState extends State<InputPage> {
                 color: activeCartColor,
               ),
               ReusableWidget(
-                color:activeCartColor,
+                color: activeCartColor,
               ),
             ],
           )),
